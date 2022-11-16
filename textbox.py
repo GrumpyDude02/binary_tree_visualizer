@@ -1,5 +1,4 @@
 import pygame
-import sys
 
 
 class textbox:
@@ -7,9 +6,10 @@ class textbox:
         self.pos = pygame.Vector2(pos[0], pos[1])
         self.dim = pygame.Vector2(surface[0], surface[1])
         self.rect = pygame.Rect(self.pos, self.dim)
-        self.text = ''
+        self.text = 'input number here'
         self.focus = False
         self.color = (0, 0, 0)
+        self.flag = True
 
     def update(self, events):
         mouse_pos = pygame.mouse.get_pos()
@@ -17,6 +17,9 @@ class textbox:
             if self.rect.collidepoint(mouse_pos[0], mouse_pos[1]):
                 if ev.type == pygame.MOUSEBUTTONDOWN:
                     self.focus = True
+                    if self.flag:
+                        self.text = ''
+                        self.flag = False
             else:
                 if ev.type == pygame.MOUSEBUTTONDOWN:
                     self.focus = False

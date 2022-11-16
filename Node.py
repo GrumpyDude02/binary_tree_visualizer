@@ -1,5 +1,4 @@
 from pygame.math import Vector2 as vc
-import math
 import pygame
 
 
@@ -14,40 +13,20 @@ class Node:
     def insert__(self, data):
         if self.data >= data:
             if (self.left == None):
-                new = Node(data, vc(self.pos.x-self.dx, self.pos.y+100 *
-                           math.sin(math.pi/4)), self.dx*0.5)
+                new = Node(data, vc(self.pos.x-self.dx,
+                           self.pos.y+75), self.dx*0.5)
                 self.left = new
                 return new
             else:
                 return self.left.insert__(data)
         else:
             if (self.right == None):
-                new = Node(data, vc(self.pos.x+self.dx, self.pos.y+100 *
-                           math.sin(math.pi/4)), self.dx*0.5)
+                new = Node(data, vc(self.pos.x+self.dx,
+                           self.pos.y+75), self.dx*0.5)
                 self.right = new
                 return new
             else:
                 return self.right.insert__(data)
-
-    # def SetPos(self, parent, isLeft):
-    #     global stack_counter, width
-    #     if stack_counter != 0:
-    #         if isLeft:
-    #             self.pos.x = parent.pos.x - \
-    #                 (width / (2 ** (stack_counter + 1)))
-    #             print(stack_counter)
-    #         else:
-    #             self.pos.x = parent.pos.x + \
-    #                 (width / (2 ** (stack_counter + 1)))
-    #             print(stack_counter)
-    #     else:
-    #         self.pos.x = width / 2
-    #     stack_counter += 1
-    #     if self.right:
-    #         self.right.SetPos(self, False)
-    #     elif self.left:
-    #         self.left.SetPos(self, True)
-    #     stack_counter -= 1
 
     def draw_node(self, screen, radius):
         if (self.left):

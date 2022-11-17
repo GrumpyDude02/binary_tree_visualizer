@@ -34,6 +34,6 @@ class Node:
         if (self.right):
             pygame.draw.aaline(screen, (0, 0, 0), self.pos, self.right.pos, 5)
         font = pygame.font.Font(None, 25)
-        data = font.render(str(self.data), True, (255, 255, 255))
+        data = font.render(str(self.data), True, (0, 0, 0))
         pygame.draw.circle(screen, (0, 255, 0), self.pos, radius)
         screen.blit(data, (self.pos.x-25//2, self.pos.y-25//2))

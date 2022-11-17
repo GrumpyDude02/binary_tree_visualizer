@@ -42,7 +42,8 @@ def main():
                 flag = False
             if flag:
                 bt1.add_node(int(a))
-        box.display(screen)
+        current_frame_time = pygame.time.get_ticks()
+        box.display(screen, current_frame_time)
         bt1.draw_tree(screen, 20)
         clock.tick(FPS)
         pygame.display.flip()

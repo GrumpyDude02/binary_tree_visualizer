@@ -1,6 +1,8 @@
 from pygame.math import Vector2 as vc
 import pygame
 
+a = []
+
 
 class Node:
     def __init__(self, data, pos, dx):
@@ -16,6 +18,7 @@ class Node:
                 new = Node(data, vc(self.pos.x-self.dx,
                            self.pos.y+75), self.dx*0.5)
                 self.left = new
+                a.append(self.left)
                 return new
             else:
                 return self.left.insert__(data)
@@ -24,6 +27,7 @@ class Node:
                 new = Node(data, vc(self.pos.x+self.dx,
                            self.pos.y+75), self.dx*0.5)
                 self.right = new
+                a.append(self.right)
                 return new
             else:
                 return self.right.insert__(data)
